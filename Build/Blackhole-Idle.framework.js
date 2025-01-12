@@ -1284,10 +1284,10 @@ function dbg(text) {
 // === Body ===
 
 var ASM_CONSTS = {
-  5927184: () => { Module['emscripten_get_now_backup'] = performance.now; },  
- 5927239: ($0) => { performance.now = function() { return $0; }; },  
- 5927287: ($0) => { performance.now = function() { return $0; }; },  
- 5927335: () => { performance.now = Module['emscripten_get_now_backup']; }
+  5927200: () => { Module['emscripten_get_now_backup'] = performance.now; },  
+ 5927255: ($0) => { performance.now = function() { return $0; }; },  
+ 5927303: ($0) => { performance.now = function() { return $0; }; },  
+ 5927351: () => { performance.now = Module['emscripten_get_now_backup']; }
 };
 
 
@@ -7581,6 +7581,10 @@ var ASM_CONSTS = {
   function _JS_WebPlayer_FinishInitialization() {
   		Module.WebPlayer.PlayerIsInitialized();
   	}
+
+  function _SyncFS() {
+          _JS_FileSystem_Sync();
+      }
 
   function ___assert_fail(condition, filename, line, func) {
       abort(`Assertion failed: ${UTF8ToString(condition)}, at: ` + [filename ? UTF8ToString(filename) : 'unknown filename', line, func ? UTF8ToString(func) : 'unknown function']);
@@ -17107,6 +17111,7 @@ var wasmImports = {
   "JS_WebGPU_SetCommandEncoder": _JS_WebGPU_SetCommandEncoder,
   "JS_WebGPU_Setup": _JS_WebGPU_Setup,
   "JS_WebPlayer_FinishInitialization": _JS_WebPlayer_FinishInitialization,
+  "SyncFS": _SyncFS,
   "__assert_fail": ___assert_fail,
   "__cxa_begin_catch": ___cxa_begin_catch,
   "__cxa_end_catch": ___cxa_end_catch,
